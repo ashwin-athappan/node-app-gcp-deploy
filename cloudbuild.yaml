@@ -16,6 +16,7 @@ steps:
       args: ['push', 'gcr.io/${PROJECT_ID}/server']
     # Configure cluster
     - name: 'gcr.io/cloud-builders/gcloud'
+      id: configureCluster
       args:
       - 'container'
       - 'clusters'
@@ -24,12 +25,14 @@ steps:
       - '--zone=us-central1-c'
     # Apply server-depl.yaml
     - name: 'gcr.io/cloud-builders/kubectl'
+      id: applyServer
       args:
       - 'apply'
       - '-f'
       - './infra/k8s/server-depl.yaml'
     # Apply ingress.yaml
     - name: 'gcr.io/cloud-builders/kubectl'
+      id: applyIngress
       args:
       - 'apply'
       - '-f'
