@@ -37,3 +37,5 @@ steps:
       - 'apply'
       - '-f'
       - './infra/k8s/ingress.yaml'
+options:
+  logging: CLOUD_LOGGING_ONLY
