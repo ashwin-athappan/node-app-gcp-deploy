@@ -7,4 +7,5 @@ steps:
     # Build Docker image
     - name: gcr.io/cloud-builders/docker
       id: buildImage
-      args: ['docker', 'build', '-t', 'gcr.io/${PROJECT_ID}/server', './server']
+      entrypoint: docker
+      args: ['build', '-t', 'gcr.io/${PROJECT_ID}/server', './server']
