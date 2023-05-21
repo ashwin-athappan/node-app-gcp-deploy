@@ -21,7 +21,7 @@ steps:
       - 'container'
       - 'clusters'
       - 'get-credentials'
-      - 'simple-ci-cd	'
+      - 'simple-ci-cd'
       - '--zone=us-east1-b'
     # Apply server-depl.yaml
     - name: 'gcr.io/cloud-builders/kubectl'
