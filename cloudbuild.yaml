@@ -30,6 +30,7 @@ steps:
       - 'apply'
       - '-f'
       - './infra/k8s/server-depl.yaml'
+      env: ["CLOUDSDK_COMPUTE_ZONE=us-east1-b", "CLOUDSDK_CONTAINER_CLUSTER=simple-ci-cd"]
     # Apply ingress.yaml
     - name: 'gcr.io/cloud-builders/kubectl'
       id: applyIngress
@@ -37,5 +38,6 @@ steps:
       - 'apply'
       - '-f'
       - './infra/k8s/ingress.yaml'
+      env: ["CLOUDSDK_COMPUTE_ZONE=us-east1-b", "CLOUDSDK_CONTAINER_CLUSTER=simple-ci-cd"]
 options:
   logging: CLOUD_LOGGING_ONLY
