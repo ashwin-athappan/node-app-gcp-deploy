@@ -22,7 +22,7 @@ steps:
       - 'clusters'
       - 'get-credentials'
       - 'simple-ci-cd	'
-      - '--zone=us-central1-c'
+      - '--zone=us-east1-b'
     # Apply server-depl.yaml
     - name: 'gcr.io/cloud-builders/kubectl'
       id: applyServer
