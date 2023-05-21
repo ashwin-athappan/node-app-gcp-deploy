@@ -9,3 +9,28 @@ steps:
       id: buildImage
       entrypoint: docker
       args: ['build', '-t', 'gcr.io/${PROJECT_ID}/server', './server']
+    # Push Docker Image
+    - name: gcr.io/cloud-builders/docker
+      id: pushImage
+      entrypoint: docker
+      args: ['push', 'gcr.io/${PROJECT_ID}/server']
+    # Configure cluster
+    - name: 'gcr.io/cloud-builders/gcloud'
+      args:
+      - 'container'
+      - 'clusters'
+      - 'get-credentials'
+      - 'simple-ci-cd	'
+      - '--zone=us-central1-c'
+    # Apply server-depl.yaml
+    - name: 'gcr.io/cloud-builders/kubectl'
+      args:
+      - 'apply'
+      - '-f'
+      - './infra/k8s/server-depl.yaml'
+    # Apply ingress.yaml
+    - name: 'gcr.io/cloud-builders/kubectl'
+      args:
+      - 'apply'
+      - '-f'
+      - './infra/k8s/ingress.yaml'
