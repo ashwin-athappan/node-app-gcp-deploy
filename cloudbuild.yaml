@@ -1,9 +1,10 @@
 steps:
     # Pull code from git
     - name: gcr.io/cloud-builders/git
-      args: ['git', 'clone', 'https://github.com/ashwin-athappan/node-app-gcp-deploy.git']
       id: getRepo
-      entrypoint: bash
+      entrypoint: git
+      args: ['clone', 'https://github.com/ashwin-athappan/node-app-gcp-deploy.git']
     # Build Docker image
     - name: gcr.io/cloud-builders/docker
+      id: buildImage
       args: ['docker', 'build', '-t', 'gcr.io/${PROJECT_ID}/server', './server']
