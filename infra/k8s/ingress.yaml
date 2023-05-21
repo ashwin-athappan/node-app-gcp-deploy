@@ -10,7 +10,7 @@ spec:
     - host: server.dev
       http:
         paths:
-          - path: /hello
+          - path: /api/users/?(.*)
             pathType: Prefix
             backend:
               service:

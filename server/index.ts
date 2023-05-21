@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/hello', (req: Request, res: Response) => {
+app.get('/api/users/get', (req: Request, res: Response) => {
     res.send('Hello World!');
 });
 
