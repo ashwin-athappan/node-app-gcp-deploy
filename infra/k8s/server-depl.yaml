@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: gcr.io/playground-s-11-ea24b633/server
+          image: gcr.io/playground-s-11-2cf7cbb4/server
 ---
 apiVersion: v1
 kind: Service
