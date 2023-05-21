@@ -1,6 +1,6 @@
 steps:
     # Pull code from git
-    - name: gcr.io/${PROJECT_ID}/git
+    - name: gcr.io/$cloud-builders/git
       args: ['git', 'clone', 'https://github.com/ashwin-athappan/node-app-gcp-deploy.git']
       id: getRepo
       entrypoint: bash
